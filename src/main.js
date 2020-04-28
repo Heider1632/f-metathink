@@ -10,7 +10,7 @@ import axios from 'axios'
 
 Vue.prototype.$http = axios;
 
-axios.defaults.baseURL = 'https://b-metathink.herokuapp.com/api'
+axios.defaults.baseURL = "https://b-metathink-oq2kbk2w0.now.sh/api";
 
 Vue.config.productionTip = false
 
