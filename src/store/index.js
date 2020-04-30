@@ -7,7 +7,6 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     user: null,
-    isAuth: false,
     CG: {},
     navbarItems: [],
     type: 'list',
@@ -30,6 +29,8 @@ export default new Vuex.Store({
         let user = decode(localStorage.getItem('jwt'))
 
         commit('setUser', user)
+
+
       }
     }
   },

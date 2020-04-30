@@ -19,13 +19,15 @@
       <v-spacer />
       
       <v-btn
+        v-if="$route.name == 'login'"
         icon 
-        @click="go('/login')"
+        @click="go('/register')"
       >
         <v-icon>mdi-account-outline</v-icon>
       </v-btn>
       
       <v-btn
+        v-if="$store.state.user"
         icon 
         @click="logout"
       >
@@ -34,7 +36,7 @@
     </v-app-bar>
 
     <v-navigation-drawer
-      v-if="$route.path !== '/login'"
+      v-if="validateRoute"
       v-model="drawer"
       app
       clipped
@@ -164,6 +166,8 @@ export default {
   },
   mounted () {
 
+    console.log(this.$route)
+
     this.$store.dispatch('autoLogin');
 
     
@@ -186,11 +190,19 @@ export default {
       console.log(evt)
     },
     logout () {
-      localStorage.removeItem('jwt')
+      localStorage.removeItem('jwt');
+      this.$store.commit('setUser', null);
       this.$router.push('/login')
     }
   },
   computed: {
+    validateRoute(){
+      if (this.$route.path == "/login" || this.$route.path == "/register"){
+        return false
+      }
+
+      return true;
+    },
     items: {
       get () {
         return this.$store.state.navbarItems
