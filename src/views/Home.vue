@@ -12,7 +12,7 @@
               </v-btn>
             </v-card-title>
             <v-card-text>
-              <p class="subtitle text-center font-weight">Descripcion</p>
+              <p class="subtitle text-center font-weight">Description</p>
 
               <h3>Nums of Mental States: {{ cg.StateMental.length }}</h3>
 
@@ -24,14 +24,20 @@
 
             </v-card-text>
             <v-card-actions class="justify-end p-2">
-               <v-btn text icon @click="detail(cg._id)"><v-icon>mdi-code-json</v-icon></v-btn>
+               <v-tooltip left>
+                <template v-slot:activator="{ on }">
+                   <v-btn v-on="on" text icon color="primary"><v-icon>mdi-help</v-icon></v-btn>
+                </template>
+                <span>Cognitive model in JSON format</span>
+              </v-tooltip> 
+              <v-btn v-on="on" text icon @click="detail(cg._id)"><v-icon>mdi-code-json</v-icon></v-btn>
             </v-card-actions>
           </v-card>
 
         </v-flex>
       </v-layout>
       <template v-else>
-          <v-alert type="warning"> No hay modelos cognitivos, aún.</v-alert>
+          <v-alert type="warning"> not cognitive models, yet. </v-alert>
       </template>
   </v-col>
 </template>

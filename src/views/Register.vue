@@ -16,7 +16,7 @@
         >
           <v-card-text>
              <p class="display-1 text--white">
-                Registrate
+                Sign up
             </p>
             <v-form
                 ref="form"
@@ -26,7 +26,7 @@
 
             <v-text-field
                 v-model="name"
-                label="Nombre"
+                label="Name"
                 outlined
                 required
             ></v-text-field>
@@ -63,7 +63,7 @@
                 block
                 @click="$router.push('/login')"
             >
-                Iniciar sesion
+                Login
             </v-btn>
 
             </v-form>

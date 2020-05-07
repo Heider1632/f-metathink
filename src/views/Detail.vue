@@ -4,7 +4,7 @@
           <pre>{{ CG }}</pre>
       </template>
       <template v-else>
-          <v-alert type="warning"> No existe el modelo cognitivo.</v-alert>
+          <v-alert type="warning"> Not exist the cognitive model.</v-alert>
       </template>
   </v-col>
 </template>

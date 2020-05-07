@@ -16,7 +16,7 @@
         >
           <v-card-text>
              <p class="display-1 text--white">
-                Iniciar
+                Login
             </p>
             <v-form
                 ref="form"

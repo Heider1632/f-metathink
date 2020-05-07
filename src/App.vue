@@ -5,8 +5,16 @@
       clipped-left
       color="teal"
     >
-      <v-app-bar-nav-icon v-if="$route.path !== '/login'" @click="drawer = !drawer" />
-      <span class="title ml-3 mr-5">Meta<span class="font-weight-light">Think</span></span>
+      <v-app-bar-nav-icon v-if="validateRoute" @click="drawer = !drawer" />
+  
+      <v-img
+        class="mb-7"
+        :src="require('@/assets/logo-meta.png')"
+        max-height="250"
+        max-width="250"
+        contain
+      ></v-img>
+      
       <v-text-field
         v-if="$route.path == '/'"
         solo-inverted
@@ -20,9 +28,9 @@
       
       <v-btn
         v-if="$route.name == 'login'"
-        icon 
         @click="go('/register')"
       >
+        Sign up
         <v-icon>mdi-account-outline</v-icon>
       </v-btn>
       
@@ -121,9 +129,17 @@
                   <v-icon>{{ item.icon }}</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
-                  <v-list-item-title class="grey--text">
+                  <v-list-item-title class="grey--text" v-if="!item.isHelper">
                     {{ item.text }}
                   </v-list-item-title>
+                  <v-tooltip v-else right>
+                    <template v-slot:activator="{ on }">
+                      <v-list-item-title v-on="on" class="grey--text">
+                        {{ item.text }}
+                      </v-list-item-title>
+                    </template>
+                     <span>Programmatic tooltip</span>
+                  </v-tooltip>
                 </v-list-item-content>
               </v-list-item>
             </div>
@@ -154,10 +170,10 @@ export default {
     $route (val) {
       if (val.name != 'new'){
         this.$store.commit('setNavbarItems', [
-          { icon: 'mdi-lightbulb', text: 'View', path: '/' },
+          { icon: 'mdi-lightbulb', text: 'Cognitive Models List', path: '/' },
           { divider: true },
           { heading: 'Routes' },
-          { icon: 'mdi-plus-circle-outline', text: 'Create new CG', path: '/new' }
+          { icon: 'mdi-plus-circle-outline', text: 'Create a new CG', path: '/new' }
         ])
 
         this.$store.commit('setType', 'list')
@@ -166,7 +182,7 @@ export default {
   },
   mounted () {
 
-    console.log(this.$route)
+    // console.log(this.$route)
 
     this.$store.dispatch('autoLogin');
 

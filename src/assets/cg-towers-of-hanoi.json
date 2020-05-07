@@ -1,0 +1,26 @@
+{
+  "Goal": [
+    "game-complete",
+    "green-disk-on-peg-b",
+    "yellow-disk-on-peg-c"
+  ],
+  "StateMental": [
+      "yellow-disk-on-peg-b",
+      "green-disk-on-peg-c"
+  ],
+  "Action": [
+    "moves-green-disk-peg-b",
+    "moves-yellow-disk-peg-c"
+  ],
+  "Object": [
+    "yellow-disk",
+    "green-disk",
+    "peg-b",
+    "peg-c"
+  ],
+  "_id": "5eb45c837f14160017aa09dd",
+  "User": "5da6213fceac9e2488a9b285",
+  "domain": "towers of hanoi",
+  "createdAt": "2020-05-07T19:07:47.295Z",
+  "__v": 0
+}
